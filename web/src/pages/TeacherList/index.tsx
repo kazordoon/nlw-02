@@ -12,7 +12,7 @@ const TeacherList = () => {
         <form id="search-teachers">
           <Input id="subject" label="Matéria" />
           <Input id="wek-day" label="Dia da semana" />
-          <Input id="time" label="Horário" />
+          <Input type="time" id="time" label="Horário" />
         </form>
       </PageHeader>
 
