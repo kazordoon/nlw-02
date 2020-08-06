@@ -57,7 +57,7 @@
   display: block;
 }
 
-.teacher-item footer button {
+.teacher-item footer a {
   width: 20rem;
   height: 5.6rem;
   background-color: var(--color-secundary);
@@ -72,9 +72,10 @@
   justify-content: space-evenly;
 
   transition: background-color .2s;
+  text-decoration: none;
 }
 
-.teacher-item footer button:hover {
+.teacher-item footer a:hover {
   background-color: var(--color-secundary-dark);
 }
 
