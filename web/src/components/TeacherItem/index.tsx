@@ -1,36 +1,31 @@
 import React from 'react';
 
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import formatPriceToTheCurrency from '../../utils/formatPriceToTheCurrency';
+import TeacherItemProps from '../../contracts/TeacherItemProps';
 
+import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 import './styles.css';
 
-const TeacherItem: React.FC = () => {
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
   return (
     <article className="teacher-item">
       <header>
         <img
-          src="https://avatars2.githubusercontent.com/u/43660078?s=400&u=841b6026562690915d9726a90cd79e0edb9c9c9b&v=4"
-          alt="Avatar"
+          src={teacher.avatar}
+          alt={teacher.name}
         />
         <div>
-          <strong>Ricardo Milos</strong>
-          <span>Dança</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        <br />
-        <br />
-        Similique aut aliquam corporis quisquam aspernatur voluptate, labore
-        inventore atque quia laborum molestiae adipisci. Adipisci debitis
-        quisquam nesciunt. Aliquam incidunt quia nulla!
-      </p>
+      <p>{teacher.bio}</p>
 
       <footer>
         <p>
           Preço/Hora
-          <strong>R$ 500,00</strong>
+          <strong>{formatPriceToTheCurrency(teacher.cost)}</strong>
         </p>
         <button>
           <img src={whatsappIcon} alt="Whatsapp logo" />
