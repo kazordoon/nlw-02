@@ -3,10 +3,18 @@ import React from 'react';
 import formatPriceToTheCurrency from '../../utils/formatPriceToTheCurrency';
 import TeacherItemProps from '../../contracts/TeacherItemProps';
 
+import api from '../../services/api';
+
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 import './styles.css';
 
 const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection(teacherId: number) {
+    api.post('connections', {
+      user_id: teacherId,
+    });
+  }
+
   return (
     <article className="teacher-item">
       <header>
@@ -27,7 +35,12 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
           Preço/Hora
           <strong>{formatPriceToTheCurrency(teacher.cost)}</strong>
         </p>
-        <a href={`https://wa.me/${teacher.whatsapp}`}>
+        <a
+          onClick={() => createNewConnection(teacher.id)}
+          href={`https://wa.me/${teacher.whatsapp}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={whatsappIcon} alt="Whatsapp logo" />
           Entrar em contato
         </a>
