@@ -4,9 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import LandingImage from '../../assets/images/landing.png';
-import StudyIcon from '../../assets/images/icons/study.png';
-import HeartIcon from '../../assets/images/icons/heart.png';
-import GiveClassesIcon from '../../assets/images/icons/give-classes.png';
+import studyIcon from '../../assets/images/icons/study.png';
+import heartIcon from '../../assets/images/icons/heart.png';
+import giveClassesIcon from '../../assets/images/icons/give-classes.png';
 
 import styles from './styles';
 
@@ -34,7 +34,7 @@ const Landing = () => {
           onPress={handleNavigationToTheStudyPages}
           style={[styles.button, styles.buttonPrimary]}
         >
-          <Image source={StudyIcon} />
+          <Image source={studyIcon} />
           <Text style={styles.buttonText}>Estudar</Text>
         </RectButton>
 
@@ -42,14 +42,14 @@ const Landing = () => {
           onPress={handleNavigationToTheGiveClassesPage}
           style={[styles.button, styles.buttonSecondary]}
         >
-          <Image source={GiveClassesIcon} />
+          <Image source={giveClassesIcon} />
           <Text style={styles.buttonText}>Dar aulas</Text>
         </RectButton>
       </View>
 
       <Text style={styles.totalConnections}>
         Total de 200 conexões já realizadas.{' '}
-        <Image source={HeartIcon} />
+        <Image source={heartIcon} />
       </Text>
     </View>
   );

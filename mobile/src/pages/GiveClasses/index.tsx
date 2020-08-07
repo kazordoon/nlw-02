@@ -3,7 +3,7 @@ import { View, ImageBackground, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
-import GiveClassesBGImage from '../../assets/images/give-classes-background.png';
+import giveClassesBGImage from '../../assets/images/give-classes-background.png';
 
 import styles from './styles';
 
@@ -18,7 +18,7 @@ const GiveClasses = () => {
     <View style={styles.container}>
       <ImageBackground
         resizeMode="contain"
-        source={GiveClassesBGImage}
+        source={giveClassesBGImage}
         style={styles.content}
       >
         <Text style={styles.title}>Quer ser um Proffy ?</Text>
