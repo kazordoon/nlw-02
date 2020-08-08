@@ -47,7 +47,6 @@ const TeacherList = () => {
     loadFavorites();
 
     const params = { subject, week_day: weekDay, time };
-    console.log(params);
     try {
       const response = await api.get('classes', { params });
 
