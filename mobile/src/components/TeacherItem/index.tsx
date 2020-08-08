@@ -1,44 +1,48 @@
 import React from 'react';
-import { View, Image, Text, ScrollView } from 'react-native';
+import { View, Image, Text } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png';
 import unfavorableIcon from '../../assets/images/icons/unfavorite.png';
 import whatsappIcon from '../../assets/images/icons/whatsapp.png';
 
-import styles from './styles';
+import TeacherItemProps from '../../contracts/TeacherItemProps';
+import api from '../../services/api';
 
-const TeacherItem: React.FC = () => {
+import styles from './styles';
+import formatPriceForTheBRLCurrency from '../../utils/formatPriceForTheBRLCurrency';
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection(teacherId: number) {
+    api.post('connections', {
+      user_id: teacherId,
+    });
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.profile}>
         <Image
           style={styles.avatar}
           source={{
-            uri:
-              'https://avatars2.githubusercontent.com/u/43660078?s=460&u=841b6026562690915d9726a90cd79e0edb9c9c9b&v=4',
+            uri: teacher.avatar,
           }}
         />
 
         <View style={styles.profileInfo}>
-          <Text style={styles.name}>Ricardo Milos</Text>
-          <Text style={styles.subject}>Dança</Text>
+          <Text style={styles.name}>{teacher.name}</Text>
+          <Text style={styles.subject}>{teacher.subject}</Text>
         </View>
       </View>
 
-      <Text style={styles.bio}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        {'\n'}
-        {'\n'}
-        Sunt excepturi autem cupiditate adipisci odio dolorem quae laboriosam ad
-        beatae, modi quasi libero hic ex ipsum inventore dolore consequatur qui
-        recusandae.
-      </Text>
+      <Text style={styles.bio}>{teacher.bio}</Text>
 
       <View style={styles.footer}>
         <Text style={styles.price}>
           Preço/hora {'  '}
-          <Text style={styles.priceValue}>R$ 500,00</Text>
+          <Text style={styles.priceValue}>
+            {formatPriceForTheBRLCurrency(Number(teacher.cost))}
+          </Text>
         </Text>
 
         <View style={styles.buttonsContainer}>
