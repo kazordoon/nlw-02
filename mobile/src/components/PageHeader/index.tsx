@@ -10,7 +10,7 @@ import PageHeaderProps from '../../contracts/PageHeaderProps';
 
 import styles from './styles';
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title, headerRight = null, children }) => {
   const { navigate } = useNavigation();
 
   function handleGoBack() {
@@ -27,7 +27,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title }) => {
         <Image source={logoImage} resizeMode="contain" />
       </View>
 
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.header}>
+        <Text style={styles.title}>{title}</Text>
+
+        {headerRight}
+      </View>
+
+      {children}
     </View>
   );
 };
