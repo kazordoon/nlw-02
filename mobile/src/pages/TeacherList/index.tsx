@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import { View, Text, AsyncStorage, KeyboardAvoidingView } from 'react-native';
 import {
   ScrollView,
   TextInput,
@@ -67,7 +67,11 @@ const TeacherList = () => {
         }
       >
         {isFiltersVisible && (
-          <View style={styles.searchForm}>
+          <KeyboardAvoidingView
+            behavior="position"
+            contentContainerStyle={{ justifyContent: 'center' }}
+            style={styles.searchForm}
+          >
             <Text style={styles.label}>Matéria</Text>
             <TextInput
               value={subject}
@@ -91,6 +95,7 @@ const TeacherList = () => {
 
               <View style={styles.inputBlock}>
                 <Text style={styles.label}>Horário</Text>
+
                 <TextInput
                   value={time}
                   onChangeText={(value) => setTime(value)}
@@ -104,7 +109,7 @@ const TeacherList = () => {
             <RectButton onPress={searchTeachers} style={styles.submitButton}>
               <Text style={styles.submitButtonText}>Filtrar</Text>
             </RectButton>
-          </View>
+          </KeyboardAvoidingView>
         )}
       </PageHeader>
       <ScrollView

@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
     maxWidth: 160,
     marginVertical: 40,
+    marginTop: 0,
   },
   header: {
     flexDirection: 'row',
