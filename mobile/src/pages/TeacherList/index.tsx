@@ -76,7 +76,7 @@ const TeacherList = () => {
             <Text style={styles.label}>Matéria</Text>
             <Select
               items={[
-                { value:'artes', label:'Artes' },
+                { value:'arts', label:'Artes' },
                 { value:'biologia', label:'Biologia' },
                 { value:'ciencias', label:'Ciências' },
                 { value:'physical_education', label:'Educação Física' },
