@@ -9,6 +9,7 @@ import {
 
 import PageHeader from '../../components/PageHeader';
 import TeacherItem from '../../components/TeacherItem';
+import Select from '../../components/Select';
 
 import { Feather } from '@expo/vector-icons';
 
@@ -46,6 +47,7 @@ const TeacherList = () => {
     loadFavorites();
 
     const params = { subject, week_day: weekDay, time };
+    console.log(params);
     try {
       const response = await api.get('classes', { params });
 
@@ -73,24 +75,41 @@ const TeacherList = () => {
             style={styles.searchForm}
           >
             <Text style={styles.label}>Matéria</Text>
-            <TextInput
-              value={subject}
-              onChangeText={(value) => setSubject(value)}
-              placeholderTextColor="#bbb"
+            <Select
+              items={[
+                { value:'artes', label:'Artes' },
+                { value:'biologia', label:'Biologia' },
+                { value:'ciencias', label:'Ciências' },
+                { value:'physical_education', label:'Educação Física' },
+                { value:'physics', label:'Física' },
+                { value:'geography', label:'Geografia' },
+                { value:'history', label:'História' },
+                { value:'math', label:'Matemática' },
+                { value:'portuguese', label:'Português' },
+                { value:'chemistry', label:'Química' },
+              ]}
+              onValueChange={(value) => setSubject(String(value))}
+              selectedValue={subject}
               style={styles.input}
-              placeholder="Qual a matéria ?"
-            ></TextInput>
+            />
 
             <View style={styles.inputGroup}>
               <View style={styles.inputBlock}>
                 <Text style={styles.label}>Dia da semana</Text>
-                <TextInput
-                  value={weekDay}
-                  onChangeText={(value) => setWeekDay(value)}
-                  placeholderTextColor="#bbb"
+                <Select
+                  items={[
+                    { value: '0', label: 'Domingo' },
+                    { value: '1', label: 'Segunda-feira' },
+                    { value: '2', label: 'Terça-feira' },
+                    { value: '3', label: 'Quarta-feira' },
+                    { value: '4', label: 'Quinta-feira' },
+                    { value: '5', label: 'Sexta-feira' },
+                    { value: '6', label: 'Sábado' },
+                  ]}
+                  onValueChange={(value) => setWeekDay(String(value))}
+                  selectedValue={weekDay}
                   style={styles.input}
-                  placeholder="Qual o dia ?"
-                ></TextInput>
+                />
               </View>
 
               <View style={styles.inputBlock}>
