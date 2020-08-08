@@ -40,7 +40,7 @@ const TeacherList = () => {
             value={subject}
             onChange={(event) => setSubject(event.target.value)}
             options={[
-              { value: 'artes', label: 'Artes' },
+              { value: 'arts', label: 'Artes' },
               { value: 'biologia', label: 'Biologia' },
               { value: 'ciencias', label: 'Ciências' },
               { value: 'physical_education', label: 'Educação Física' },
