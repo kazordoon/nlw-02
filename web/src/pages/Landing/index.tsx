@@ -14,7 +14,7 @@ import './styles.css';
 
 const Landing = () => {
   const [totalConnections, setTotalConnections] = useState(0);
-  const [connectionWord, setConnectionWord] = useState('conexões');
+  const [connectionPhrase, setConnectionPhrase] = useState('conexões');
 
   useEffect(() => {
     api.get('connections').then((response) => {
@@ -22,7 +22,11 @@ const Landing = () => {
       setTotalConnections(total);
 
       if (total === 1) {
-        setConnectionWord('conexão');
+        setConnectionPhrase('Total de 1 conexão já realizada.  ');
+      } else {
+        setConnectionPhrase(
+          `Total de ${totalConnections} conexões já realizadas.  `
+        );
       }
     });
   });
@@ -53,7 +57,7 @@ const Landing = () => {
         </div>
 
         <span className="total-connections">
-          Total de {totalConnections} {connectionWord} já realizadas.
+          {connectionPhrase}
           <img src={purpleHeartIcon} alt="Coração roxo" />
         </span>
       </div>
