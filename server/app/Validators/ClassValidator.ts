@@ -33,7 +33,13 @@ export default class ConnectionValidator {
     bio: schema.string({ trim: true }, [rules.required()]),
     subject: schema.string({ trim: true }, [rules.required()]),
     cost: schema.number([rules.required()]),
-    schedule: schema.array([rules.required()]).anyMembers(),
+    schedule: schema.array().members(
+      schema.object().members({
+        week_day: schema.number([rules.required()]),
+        to: schema.string({}, [rules.required()]),
+        from: schema.string({}, [rules.required()]),
+      })
+    ),
   })
 
   /**
