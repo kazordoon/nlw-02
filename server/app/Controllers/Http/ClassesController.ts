@@ -89,7 +89,7 @@ export default class ClassesController {
         await classSchedule.save()
       })
 
-      await trx.table('classes_schedules').insert(mappedSchedules)
+      await Promise.all(mappedSchedules)
 
       await trx.commit()
 
