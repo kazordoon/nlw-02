@@ -4,6 +4,7 @@ import Class from 'App/Models/Class'
 import ClassValidator from 'App/Validators/ClassValidator'
 import Database from '@ioc:Adonis/Lucid/Database'
 import ClassSchedule from 'App/Models/ClassSchedule'
+import ClassQueryParamValidator from 'App/Validators/ClassQueryParamValidator'
 
 const convertHoursToMinute = (time: string) => {
   const [hours, minutes] = time.split(':').map(Number)
@@ -14,21 +15,11 @@ const convertHoursToMinute = (time: string) => {
 export default class ClassesController {
   public async index ({ response, request }: HttpContextContract) {
     try {
-      const data = await request.only([
-        'week_day',
-        'subject',
-        'time',
-      ])
-      const weekDay = data.week_day as string
-      const subject = data.subject as string
-      const time = data.time as string
-
-      const hasMissingFilters = !weekDay || !subject || !time
-      if (hasMissingFilters) {
-        return response.status(406).json({
-          error: 'Missing filter to search the classes.',
-        })
-      }
+      const {
+        week_day: weekDay,
+        subject,
+        time,
+      } = await request.validate(ClassQueryParamValidator)
 
       const timeInMinutes = convertHoursToMinute(time)
 
