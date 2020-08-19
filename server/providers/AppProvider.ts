@@ -19,7 +19,7 @@ export default class AppProvider {
 
   public async ready () {
     // App is ready
-    if (!Application.inProduction) {
+    if (Application.nodeEnvironment === 'development') {
       const Database = (await import('@ioc:Adonis/Lucid/Database')).default
       const Event = (await import('@ioc:Adonis/Core/Event')).default
       Event.on('db:query', Database.prettyPrint)
