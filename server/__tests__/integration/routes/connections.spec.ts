@@ -20,7 +20,7 @@ test.group('Connections', () => {
   }
 
   test.group('GET /connections', () => {
-    test('should the connections page exists', async (assert) => {
+    test('should return the total connections', async (assert) => {
       const { body } = await request(BASE_URL).get('/connections').expect(200)
 
       assert.isDefined(body.total)

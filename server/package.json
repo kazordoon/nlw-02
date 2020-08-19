@@ -6,7 +6,8 @@
     "build": "node ace build",
     "start": "node ace serve --watch",
     "lint": "eslint . --ext=.ts",
-    "test": "node build/japaFile.js"
+    "test": "node build/japaFile.js",
+    "coverage": "nyc yarn test"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^2.0.0",
@@ -17,6 +18,7 @@
     "execa": "^4.0.3",
     "get-port": "^5.1.1",
     "japa": "^3.1.1",
+    "nyc": "^15.1.0",
     "pino-pretty": "^4.1.0",
     "supertest": "^4.0.2",
     "typescript": "^3.9.7",

@@ -1,0 +1,13 @@
+{
+  "all": true,
+  "extension": [".ts"],
+  "reporter": ["lcov", "text-summary"],
+  "exclude": [
+    "providers/",
+    "__tests__/",
+    "coverage/",
+    "start/",
+    "japaFile.ts",
+    "server.ts"
+  ]
+}
