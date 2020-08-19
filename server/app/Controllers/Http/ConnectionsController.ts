@@ -14,8 +14,8 @@ export default class ConnectionsController {
 
       return { total }
     } catch (err) {
-      return response.status(400).json({
-        error: 'Unexpected error listing the connections',
+      return response.status(500).json({
+        error: 'Unexpected error while listing the connections',
       })
     }
   }
