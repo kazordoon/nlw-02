@@ -12,7 +12,7 @@ export default class ConnectionsController {
 
       const { total } = connectionsCount
 
-      return { total }
+      return { total: Number(total) }
     } catch (err) {
       return response.status(500).json({
         error: 'Unexpected error while listing the connections.',
