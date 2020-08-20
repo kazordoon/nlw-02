@@ -10,21 +10,21 @@
 
 ### Installing
 
-- Clone the repository: `https://github.com/kazordoon/nlw-02.git`
-- Get in the project directory: `cd nlw-02`
+- Clone the repository: `git clone https://github.com/kazordoon/nlw-02.git`
+- Get in the project directory: `cd nlw-02/server`
 - Install the dependencies:
   - NPM: `npm i` | Remove `yarn.lock` file before installing with NPM
   - Yarn: `yarn`
 
 ### Setting environment variables
 
-Copy the `.env.example` file to the `.env`, then you will need to set the variable values according to your environment.
+Copy the `.env.example` file to the `.env`, then you will need to set the variable values into the `.env` file according to your environment.
 
 ### Preparing the server
 - Install the database engine driver following the instructions on this link: [https://preview.adonisjs.com/guides/database/setup](https://preview.adonisjs.com/guides/database/setup)
 - Build the application:
   - NPM: `npm run build`
-  - Yarn: `yarn test`
+  - Yarn: `yarn build`
 - Run the migrations: `node ace migration:run`
 
 ### Running the server
