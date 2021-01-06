@@ -12,25 +12,25 @@
   "devDependencies": {
     "@adonisjs/assembler": "^2.0.0",
     "@types/supertest": "^2.0.10",
-    "adonis-preset-ts": "^1.0.4",
-    "eslint": "^7.6.0",
-    "eslint-plugin-adonis": "^1.0.14",
+    "adonis-preset-ts": "^1.1.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-adonis": "^1.0.15",
     "execa": "^4.0.3",
     "get-port": "^5.1.1",
     "japa": "^3.1.1",
     "nyc": "^15.1.0",
-    "pino-pretty": "^4.1.0",
+    "pino-pretty": "^4.3.0",
     "supertest": "^4.0.2",
     "typescript": "^3.9.7",
-    "youch": "^2.0.10",
-    "youch-terminal": "^1.0.0"
+    "youch": "^2.1.1",
+    "youch-terminal": "^1.0.1"
   },
   "dependencies": {
     "@adonisjs/ace": "^6.0.0",
     "@adonisjs/core": "^5.0.0-preview-rc",
     "@adonisjs/fold": "^6.0.0",
     "@adonisjs/lucid": "^8.3.1",
-    "pg": "^8.3.0",
+    "pg": "^8.5.1",
     "proxy-addr": "^2.0.6",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.19"
